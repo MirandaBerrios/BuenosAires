@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+	<div class="content" th:each= "producto : ${productos}">
+		<div class="product" style="border: 1px solid black ;  margin: 1em"> 
+			<h1 style="background-color: gray" th:text="${producto.id}"> </h1>
+			<h1 th:text="${producto.name}"> </h1>
+			<h1 th:text="${producto.value}"> </h1>
+		</div>
+	
+	 </div>
+
+</div>
+</body>
+</html>
