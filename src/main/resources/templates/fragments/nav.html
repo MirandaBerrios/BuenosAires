@@ -1,0 +1,30 @@
+<header th:fragment="header">
+    <div class="navContainer">
+        <div class="row ">
+            <div class="item col-xl-2 col-sm-6 item-1">
+                <div class="item-1">Buenos Aires</div></div>
+            <div class="item col-xl-1 col-sm-6 ">
+                <div class="item-2">
+                    <img th:src="@{/icons/menu.png}" alt="" width="25px"> 
+                    Menú</div>
+                </div>
+            <div class="item col-xl-5 col-sm-6 ">
+                <div class="item-3 input-group mb-3">
+                    <input class="form-control" type="text"  placeholder="Buscar" aria-describedby="button-search" aria-label="Buscar">
+                    <button class="btn btn-outline-secondary" type="button" id="button-search"><img th:src="@{icons/magnifying-glass.png}" width="15px"></img></button>
+                </div>
+            </div>
+            <div class="item user col-xl-1 col-sm-6 ">
+                <div class="item-4"><img th:src="@{/icons/user.png}" alt="" width="25px"> Nombre</div>
+            </div>
+            <div class="item col-xl-1 col-sm-6 ">
+                <div class="item-5">MIS PEDIDOS</div>
+            </div>
+            <div class="item col-xl-1 col-sm-6 ">
+                <div class="item-6"><img th:src="@{/icons/cart.png}" alt="" width="35px"></div>
+            </div>
+          
+          
+        </div>
+    </div>
+</header>
