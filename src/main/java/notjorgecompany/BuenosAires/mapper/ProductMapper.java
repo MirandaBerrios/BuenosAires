@@ -19,10 +19,10 @@ public interface ProductMapper {
 		+ " is_available as isAvailiable , "
 		+ " is_ofert as isOfert , "
 		+ " category as category"
-		+ " from producto"})	
+		+ " from product"})	
 public List<Product> getAllProduct(); 
 
-@Select({" SELECT name from producto "})
+@Select({" SELECT name from product "})
 public String getNombre();
 
 

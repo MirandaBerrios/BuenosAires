@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" th:href="@{/img/favicon.png}" type="image/png">
+
+    <title >Invoice | Buenos Aires </title>
+
+    <link th:href="@{/bootstrap5/css/bootstrap.min.css}" rel="stylesheet">
+  
+
+    <link th:href="@{/css/plugins/dataTables/datatables.min.css}" rel="stylesheet">
+
+    <link th:href="@{/css/animate.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/plugins/select2/select2.min.css}" rel="stylesheet">
+    <link th:href="@{/css/plugins/sweetalert/sweetalert.css}" rel="stylesheet">
+    <link th:href="@{/css/plugins/iCheck/custom.css}" rel="stylesheet">
+    <link th:href="@{/css/plugins/switchery/switchery.css}" rel="stylesheet">
+    
+  
+
+</head>
+<style>
+.select2-close-mask{
+    z-index: 2099;
+}
+.select2-dropdown{
+    z-index: 3051;
+}
+</style>
+
+<body class="pace-done mini-navbar">
+	<!--Tabla principal  -->
+    <div id="wrapper">
+        <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+        	 <!--     include logout -->
+       <!-- <div th:include="include/logout">  </div> -->
+        </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2 >Facturas | Buenos Aires</h2>
+                    <ol class="breadcrumb">
+                        <li>
+                            <a th:href="@{/home}" >Inicio</a>
+                        </li>
+                        <li class="active">
+                            <strong >Facturas</strong>
+                        </li>
+                    </ol>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+            
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5 >Listado de Cuentas</h5>
+                        <div class="ibox-tools">
+                            <button class="btn-primary btn btn-sm" id="btnWidget" >Nuevo</button>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover dataTables-example" id="	">
+                            <thead>
+                            <tr>                                       
+                                
+                                <th  class="text-center">Número factura</th>
+								<th  class="text-center">Cliente</th>
+								<th  class="text-center">Fecha</th>
+								<th  class="text-center">Descripción</th>
+								<th  class="text-center">Monto</th>
+							<!-- 	<th  class="text-center">Order Despacho</th>
+								<th  class="text-center">Estado</th>
+								<th  class="text-center">Número Solicitud Servicio</th>
+								<th  class="text-center">Estado Solicitud</th>    -->             
+                            </tr>
+                            </thead>
+                         <tbody>
+							 <tr  th:each="invoice : ${invoiceList}" >
+							 	<td class="text-center" th:text="${invoice.id}">id</td>
+							 	<td class="text-center" th:text="${invoice.idCustomer}">customer</td>
+							 	<td class="text-center" th:text="${invoice.date}">date</td>
+							 	<td class="text-center" th:text="${invoice.description}">banco</td>
+							 	<td class="text-center" th:text="${invoice.amount}">rut</td>
+							<!--  	<td class="text-center" th:text="${invoice.orderShipment}">fecha</td>
+						        <td class="text-center" th:text="${invoice.orderState}">fecha</td>
+						        <td class="text-center" th:text="${invoice.numberService}">fecha</td>
+						        <td class="text-center" th:text="${invoice.ServiceState}">fecha</td> -->
+														
+						    </tr>
+						</tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+	         <!-- footer -->
+	<footer th:insert="fragments/footer.html :: footer"></footer>
+	        <!-- /footer -->
+        </div>
+     </div>
+        
+
+	
+	
+	
+    <!-- Mainly scripts -->
+    <script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+    <script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+    <script th:src="@{/js/plugins/dataTables/datatables.min.js}"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script th:src="@{/js/inspinia.js}"></script>
+    <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+    <script th:src="@{/js/jquery.validate.min.js}"></script>
+    <script th:src="@{/js/plugins/sweetalert/sweetalert.min.js}"></script>
+     <!-- iCheck -->
+    <script th:src="@{/js/plugins/iCheck/icheck.min.js}"></script>
+    <script th:src="@{/js/plugins/select2/select2.full.min.js}"></script>
+    <script th:src="@{/js/customBSS.js}"></script>
+             <!-- Switchery -->
+    <script th:src="@{/js/plugins/switchery/switchery.js}"></script>
+             <!-- Fintoc -->
+    <script src="https://js.fintoc.com/v1/"></script>
+	<script th:src="@{/js/plugins/fintoc/fintoc.js}" > </script>
+	
+<script th:inline="javascript">
+
+ $(document).ready(function(){
+	 
+        	/***   DATA TABLE   ***/
+            $('#dataTables1').DataTable({
+                pageLength: 25,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    {extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'Listado de emisores'},
+                    {extend: 'pdf', title: 'Listado de emisores'},
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+                            $(win.document.body).find('table')
+                                    			.addClass('compact')
+                                    			.css('font-size', 'inherit');
+                    }
+                    }
+                ]
+            });
+        	
+ });
+         	
+         
+             
+            
+        
+ </script>
+
+</body>
+
+</html>
