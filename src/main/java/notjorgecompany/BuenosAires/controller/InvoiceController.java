@@ -21,7 +21,7 @@ public class InvoiceController {
 			
 			List<Invoice> invoiceList = invoiceService.getAllInvoices();
 			System.err.println("listas->>"+invoiceList);
-			model.addAttribute("invoiceList", invoiceList);
+			model.addAttribute("invoiceReportList", invoiceList);
 			System.err.println("cargando página invoices");
 			
 		

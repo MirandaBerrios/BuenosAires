@@ -79,23 +79,23 @@
 								<th  class="text-center">Fecha</th>
 								<th  class="text-center">Descripción</th>
 								<th  class="text-center">Monto</th>
-							<!-- 	<th  class="text-center">Order Despacho</th>
+							 	<th  class="text-center">Order Despacho</th>
 								<th  class="text-center">Estado</th>
 								<th  class="text-center">Número Solicitud Servicio</th>
-								<th  class="text-center">Estado Solicitud</th>    -->             
+								<th  class="text-center">Estado Solicitud</th>                 
                             </tr>
                             </thead>
                          <tbody>
-							 <tr  th:each="invoice : ${invoiceList}" >
-							 	<td class="text-center" th:text="${invoice.id}">id</td>
-							 	<td class="text-center" th:text="${invoice.idCustomer}">customer</td>
-							 	<td class="text-center" th:text="${invoice.date}">date</td>
-							 	<td class="text-center" th:text="${invoice.description}">banco</td>
-							 	<td class="text-center" th:text="${invoice.amount}">rut</td>
-							<!--  	<td class="text-center" th:text="${invoice.orderShipment}">fecha</td>
-						        <td class="text-center" th:text="${invoice.orderState}">fecha</td>
-						        <td class="text-center" th:text="${invoice.numberService}">fecha</td>
-						        <td class="text-center" th:text="${invoice.ServiceState}">fecha</td> -->
+							 <tr  th:each="invoice : ${invoiceReportList}" >
+							 	<td class="text-center" th:text="${invoice.numeroFactura}">id</td>
+							 	<td class="text-center" th:text="${invoice.nameCustomer}">customer</td>
+							 	<td class="text-center" th:text="${invoice.fecha}">date</td>
+							 	<td class="text-center" th:text="${invoice.descripcion}">banco</td>
+							 	<td class="text-center" th:text="${invoice.monto}">rut</td>
+								<td class="text-center" th:text="${invoice.ordenDespacho}">fecha</td>
+						        <td class="text-center" th:text="${invoice.estadoOrdenDespacho}">fecha</td>
+						        <td class="text-center" th:text="${invoice.numeroServicio}">fecha</td>
+						        <td class="text-center" th:text="${invoice.stateServicio}">fecha</td>
 														
 						    </tr>
 						</tbody>
