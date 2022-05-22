@@ -7,6 +7,6 @@ import notjorgecompany.BuenosAires.odt.InvoiceReport;
 public interface InvoiceReportService {
 
 	public List<InvoiceReport> getInvoiceReportByQueryAdmin();
-	public List<InvoiceReport> getInvoiceReportByQueryCustomer();
+	public List<InvoiceReport> getInvoiceReportByQueryCustomer(String idCustomer);
 	
 }

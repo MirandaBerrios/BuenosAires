@@ -24,9 +24,8 @@ public class InvoiceReportServiceImpl implements InvoiceReportService {
 	}
 
 	@Override
-	public List<InvoiceReport> getInvoiceReportByQueryCustomer() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<InvoiceReport> getInvoiceReportByQueryCustomer(String idCustomer) {
+		return invoiceReportMapper.getInvioceReportByQueryCustomer(idCustomer);
 	}
 
 }
