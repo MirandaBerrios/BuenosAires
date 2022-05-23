@@ -15,7 +15,7 @@ public class Home {
 	@Autowired
 	ProductService productService; 
 	
-	@GetMapping("/")
+	@GetMapping("/home")
 	public String showProducts(Model model)  {
 			
 			List<Product> productos = productService.getAllProducts();
