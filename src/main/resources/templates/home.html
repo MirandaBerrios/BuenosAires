@@ -5,6 +5,9 @@
 <title>ANWO</title>
  <link th:href= "@{bootstrap5/css/bootstrap.min.css} " rel="stylesheet"/>
  <link th:href="@{css/nav.css}"  rel="stylesheet"/>
+ 
+
+
 </head>
 <body>
 <nav th:insert="fragments/nav.html :: header"></nav>
@@ -15,7 +18,7 @@
 <div class="container" style="display:flex; ">
 	<div th:each= "producto : ${productos}" style="border:1px solid black;">
     <div class="product" style=" width: 500px;  margin: 15px">
-    	<h1 th:text="${producto.isAvailiable}"></h1>
+    	<h1 th:text="${producto.isAvailable}"></h1>
         <h3 th:text="${producto.name}"> </h3>
         <div class="image"> <img src="" alt=""> </div>
         <p th:text="${producto.description}"> </p>
@@ -26,7 +29,7 @@
     </div>
     </div>
 </div>
- 
+ <br><br><br><br><br><br><br><br><br><br><br><br>
 <script th:src="@{/src/main/resources/static/bootstrap-5.1.3-dist/js/bootstrap.min.js}"> </script>
 <footer th:insert="fragments/footer.html :: footer"></footer>
 

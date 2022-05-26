@@ -1,4 +1,4 @@
-package notjorgecompany.BuenosAires.mapper;
+	package notjorgecompany.BuenosAires.mapper;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public interface ProductMapper {
 		+ " name as name, "
 		+ " value  as value, "
 		+ " description  as description, "
-		+ " is_available as isAvailiable , "
+		+ " is_available as isAvailable , "
 		+ " is_ofert as isOfert , "
 		+ " category as category"
 		+ " from product"})	
@@ -37,19 +37,8 @@ public String getNombre();
 		+ "        category as category,"
 		+ "        description as description "
 		+ " from product "
-		+ " where id = 10 "})	
-public Product getProductById(); 
-
-@Select({" SELECT "
-		+ " id  as id , "
-		+ " name as name, "
-		+ " value  as value, "
-		+ " description  as description, "
-		+ " is_available as isAvailiable , "
-		+ " is_ofert as isOfert , "
-		+ " category as category"
-		+ " from product "
 		+ " where id = #{id} "})	
-public Product getProductById1(@Param("id") String id); 
+public Product getProductById(@Param("id") String id);
+
 
 }

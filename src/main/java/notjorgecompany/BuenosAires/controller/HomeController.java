@@ -10,21 +10,22 @@ import notjorgecompany.BuenosAires.odt.Product;
 import notjorgecompany.BuenosAires.service.ProductService;
 
 @Controller
-public class Home {
+public class HomeController {
 	
 	@Autowired
 	ProductService productService; 
 	
-	@GetMapping("/home")
+	@GetMapping("/")
 	public String showProducts(Model model)  {
 			
 			List<Product> productos = productService.getAllProducts();
 			model.addAttribute("productos", productos);
-			System.err.println("cargando página");
-			
-		
+			System.err.println("mostando home");
+
 		return "home";
 
 	}
+	
+	
 
 }

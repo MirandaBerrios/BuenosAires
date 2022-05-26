@@ -1,27 +1,29 @@
 <header th:fragment="header">
     <div class="navContainer">
-        <div class="row ">
+        <div class="row " >
             <div class="item col-xl-2 col-sm-6 item-1">
-                <div class="item-1">Buenos Aires</div></div>
+                <div id="item-1"><a th:href="@{/}">Buenos Aires</a> </div></div>
             <div class="item col-xl-1 col-sm-6 ">
-                <div class="item-2">
-                    <img th:src="@{/icons/menu.png}" alt="" width="25px"> 
-                    Menú</div>
+                <div id="item-2">
+                    <a th:href="@{/product}" style="text-decoration:none; color:black">Productos</a></div>
                 </div>
-            <div class="item col-xl-5 col-sm-6 ">
-                <div class="item-3 input-group mb-3">
+            <div class="item col-xl-4  col-sm-6 ">
+                <div id="item-3" class="input-group mb-3">
                     <input class="form-control" type="text"  placeholder="Buscar" aria-describedby="button-search" aria-label="Buscar">
                     <button class="btn btn-outline-secondary" type="button" id="button-search"><img th:src="@{icons/magnifying-glass.png}" width="15px"></img></button>
                 </div>
             </div>
             <div class="item user col-xl-1 col-sm-6 ">
-                <div class="item-4"><img th:src="@{/icons/user.png}" alt="" width="25px"> Nombre</div>
+                <div id="item-4"><a th:href="@{/invoice_report_customer/10}" style="text-decoration:none; color:black"><img th:src="@{/icons/user.png}" alt="" width="25px"> perfil</a></div>
             </div>
             <div class="item col-xl-1 col-sm-6 ">
-                <div class="item-5">MIS PEDIDOS</div>
+                <div id="item-5"><a th:href="@{/invoice_report_customer}">MIS PEDIDOS</a> </div>
             </div>
             <div class="item col-xl-1 col-sm-6 ">
-                <div class="item-6"><img th:src="@{/icons/cart.png}" alt="" width="35px"></div>
+                <div id="item-6"><a th:href="@{/register}" style="text-decoration:none; color:black">Registrarse</a> </div>
+            </div>
+            <div class="item col-xl-1 col-sm-6 ">
+                <div id="item-7"><img th:src="@{/icons/cart.png}" alt="" width="35px"></div>
             </div>
           
           

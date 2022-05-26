@@ -5,6 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import notjorgecompany.BuenosAires.mapper.ProductMapper;
 import notjorgecompany.BuenosAires.odt.Product;
 import notjorgecompany.BuenosAires.service.ProductService;
@@ -33,12 +37,15 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Product getProductById() {
-		Product product = productMapper.getProductById1("10");
-		System.err.println(product);
+	public Product getProductById(String id) {
+		Product product = productMapper.getProductById("10");
 		return product;
 		
 	}
+
+
+	
+	
 	
 	
 

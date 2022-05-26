@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Buenos Aires</title>
+</head>
+<body>
+
+
+
+
+
+<form th:action="${details.url}" method="POST">
+    <input type="hidden" name="token_ws" th:value="${details.token}">
+    <input type="submit" value="Ejecutar Pago con Webpay">
+</form>
+
+</body>
+</html>

@@ -8,5 +8,8 @@ public interface ProductService {
 	
 	public List<Product> getAllProducts();
 
-	public Product getProductById();
+	public Product getProductById(String id);
+	
+	
+	
 }

@@ -1,7 +1,5 @@
 package notjorgecompany.BuenosAires.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,15 +15,14 @@ public class ProdutoInfoController {
 	ProductService productService;
 	
 	@GetMapping("/producto-info")
-	public String showProductById(Model model) {
-		
-		Product producto = productService.getProductById();
+	public String showProductById(Model model) {	
+		Product producto = productService.getProductById("10");
 		model.addAttribute("producto", producto);
-		
-		//System.err.println(producto);
 		return "producto-info";
 		
 	};
+	
+	
 	
 	
 	
