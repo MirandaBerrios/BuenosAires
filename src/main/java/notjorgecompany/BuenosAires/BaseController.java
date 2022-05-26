@@ -1,11 +1,11 @@
 package notjorgecompany.BuenosAires;
 
-import lombok.Getter;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
+
+import lombok.Getter;
 
 public  abstract class BaseController {
     @Getter private Map<String, Object> model = new HashMap<>();

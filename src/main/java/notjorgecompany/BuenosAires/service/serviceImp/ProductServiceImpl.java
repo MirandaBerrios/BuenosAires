@@ -5,10 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import notjorgecompany.BuenosAires.mapper.ProductMapper;
 import notjorgecompany.BuenosAires.odt.Product;
 import notjorgecompany.BuenosAires.service.ProductService;

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import notjorgecompany.BuenosAires.odt.Invoice;
 import notjorgecompany.BuenosAires.odt.InvoiceReport;
 import notjorgecompany.BuenosAires.service.InvoiceReportService;
 
