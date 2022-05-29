@@ -12,26 +12,35 @@
 
 
 
-<div class="container" style="display:flex; ">
+<div class="container" style="display:flex; flex-wrap: wrap;">
 	
-    <div th:each= "producto : ${productos}" style="border:1px solid black;">
-	
-    <div class="product" style=" width: 500px;  margin: 15px">
-    	<h1 th:text="${producto.isAvailable}"></h1>
-        <h3 th:text="${producto.name}"> </h3>
-        <h3 th:field="${producto.id}" th:text="${producto.id}"> </h3>
-        <div class="image"> <img src="" alt=""> </div>
-        <p th:text="${producto.description}"> </p>
-        <div>
-            <div class="precio" th:text="${producto.value}"></div>
-            <a type="submit" th:href="@{/producto-info/{id}(id=${producto.id})}" class="btn btn-primary">Ver </a>
-        </div>
-    </div>
+    <div th:each= "producto : ${productos}" style="flex: 30%;">
+    	<div class="product" style="margin: 15px; border:1px solid black;">
+    		
+    		<h2 th:if="${producto.isAvailable} == 'S'"> Disponible</h2>
+    		<h2 th:if="${producto.isAvailable} == 'N'"> Agotado</h2>
+        	<h4 th:text="${producto.name}"> </h4>
+        	<h3 th:field="${producto.id}" th:text="${producto.id}" hidden> </h3>
+        	<div class="image"> <img th:src="@{/image/defult.jpg}" alt="" width="300px"> 
+        	</div>
+        	<p th:text="${producto.description}"> </p>
+        	<div class="precio" th:text="${producto.value}"></div>
+        	<div th:if="${producto.isAvailable} == 'S' ">
+            	<a style="margin: 15px;" type="submit" th:href="@{/producto-info/{id}(id=${producto.id})}"  class="btn btn-primary">Ver Productos</a>
+        	</div>
+        	<div th:if="${producto.isAvailable} == 'N' ">
+            	<a style="margin: 15px;" type="submit"   class="btn btn-primary">No Disponible</a>
+        	</div>
+   		</div>
 
     </div>
-   
 </div>
  <br><br><br><br><br><br><br><br><br><br><br><br>
+ <!-- <script>
+	Document.addEventListener("DOMContentLoded" , funcition(){
+		for producto in productos 
+	}); 
+</script> -->
 <script th:src="@{/src/main/resources/static/bootstrap-5.1.3-dist/js/bootstrap.min.js}"> </script>
 <footer th:insert="fragments/footer.html :: footer"></footer>
 

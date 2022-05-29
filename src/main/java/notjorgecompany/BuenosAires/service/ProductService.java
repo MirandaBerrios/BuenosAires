@@ -14,7 +14,7 @@ public interface ProductService {
 	public Product getProductById(String id);
 	
 
-	public Product productoPorId(@PathVariable String id, Model model);
+	
 
 	public int addNewProduct(Product product);
 	

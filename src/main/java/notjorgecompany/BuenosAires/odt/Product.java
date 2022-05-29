@@ -1,7 +1,5 @@
 package notjorgecompany.BuenosAires.odt;
 
-import java.util.Base64;
-import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -13,7 +13,7 @@
  
 <div class="container" style="display: flex; margin-top: 150px; margin-bottom: 270px">
 	<div class="col-3">
-	<h1>Imagen</h1>
+		<img th:src="@{/image/defult.jpg}" alt="" width="300px"></img>
 	</div>
 	<div class="col-6">
 		<div th:object="${producto}">
@@ -24,11 +24,13 @@
 			<p th:text="${producto.description}"></p>
 			<form th:action="${details.url}" method="POST">
 	    		<input type="hidden" name="token_ws" th:value="${details.token}">
-	    		<input class="btn btn-primary" type="submit" value="Ejecutar Pago con Webpay">
+	    		<input  class="btn btn-primary" type="submit" value="Ejecutar Pago con Webpay">
 			</form>		
 		</div>
 	</div>
 </div>
+
+
 
 <script th:src="@{/src/main/resources/static/bootstrap-5.1.3-dist/js/bootstrap.min.js}"> </script>
 <footer th:insert="fragments/footer.html :: footer"></footer>

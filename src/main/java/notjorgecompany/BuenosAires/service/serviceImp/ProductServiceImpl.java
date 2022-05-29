@@ -19,17 +19,7 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Override
 	public List<Product> getAllProducts() {
-		List<Product> productos = productMapper.getAllProduct();
-		
-		
-		productos.forEach(p ->{
-			if(p.getIsAvailable().toUpperCase().equals("S")){
-				p.setIsAvailable("Disponible");
-			}else {
-				p.setIsAvailable("Agotado");
-			};
-		});
-		
+		List<Product> productos = productMapper.getAllProduct();		
 		return productos;
 	}
 
@@ -47,6 +37,7 @@ public class ProductServiceImpl implements ProductService {
 			
 
 	}
+
 
 
 	
