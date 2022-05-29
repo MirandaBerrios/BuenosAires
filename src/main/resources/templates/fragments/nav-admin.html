@@ -1,10 +1,10 @@
-<header th:fragment="header">
+<header th:fragment="admin">
     <div class="navContainer">
         <div class="row " >
             <div class="item col-xl-2 col-sm-6 item-1">
-                <div id="item-1"><a th:href="@{/}">Buenos Aires</a> </div></div>
+                <div id="item-1"><a th:href="@{/home-admin}">Buenos Aires</a> </div></div>
             <div class="item col-xl-1 col-sm-6 ">
-                <div id="item-2">
+                <div id="item-2" hidden>
                     <a th:href="@{/product}" style="text-decoration:none; color:black">Mis servicios</a></div>
                 </div>
             <div class="item col-xl-4  col-sm-6 ">
@@ -13,15 +13,10 @@
                     <button class="btn btn-outline-secondary" type="button" id="button-search"><img th:src="@{icons/magnifying-glass.png}" width="15px"></img></button>
                 </div>
             </div>
-            <div class="item user col-xl-1 col-sm-6 ">
-                <div id="item-4"><a th:href="@{/perfil}" style="text-decoration:none; color:black"><img th:src="@{/icons/user.png}" alt="" width="25px"> Perfil</a></div>
-            </div>
             <div class="item col-xl-1 col-sm-6 ">
-                <div id="item-5"><a th:href="@{/invoice_report_customer/10}">MIS PEDIDOS</a> </div>
+                <div id="item-5"><a th:href="@{/invoice_report_admin}">Facturas</a> </div>
             </div>
-            <div class="item col-xl-1 col-sm-6 ">
-                <div id="item-6"><a th:href="@{/register}" style="text-decoration:none; color:black">Registrarse</a> </div>
-            </div>
+
             <div class="item col-xl-1 col-sm-6 ">
                 <div id="item-7"><img th:src="@{/icons/cart.png}" alt="" width="35px"></div>
             </div>

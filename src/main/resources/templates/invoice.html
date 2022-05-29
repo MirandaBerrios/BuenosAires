@@ -44,7 +44,7 @@
                     <h2 >Facturas | Buenos Aires</h2>
                     <ol class="breadcrumb">
                         <li>
-                            <a th:href="@{/home}" >Inicio</a>
+                            <a th:href="@{/home-admin}" >Inicio</a>
                         </li>
                         <li class="active">
                             <strong >Facturas</strong>
@@ -68,7 +68,7 @@
                     </div>
                     <div class="ibox-content">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover dataTables-example" id="	">
+                            <table class="table table-striped table-bordered table-hover dataTables-example" id="invoice-admin">
                             <thead>
                             <tr>                                       
                                 
@@ -131,26 +131,22 @@
     <script th:src="@{/js/plugins/iCheck/icheck.min.js}"></script>
     <script th:src="@{/js/plugins/select2/select2.full.min.js}"></script>
     <script th:src="@{/js/customBSS.js}"></script>
-             Switchery
-    <script th:src="@{/js/plugins/switchery/switchery.js}"></script>
-             Fintoc
-    <script src="https://js.fintoc.com/v1/"></script>
-	<script th:src="@{/js/plugins/fintoc/fintoc.js}" > </script> 
+
 	
 <script th:inline="javascript"> 
 
  $(document).ready(function(){
 	 
         	/***   DATA TABLE   ***/
-            $('#dataTables1').DataTable({
+            $('#invoice-admin').DataTable({
                 pageLength: 25,
                 responsive: true,
                 dom: '<"html5buttons"B>lTfgitp',
                 buttons: [
                     {extend: 'copy'},
                     {extend: 'csv'},
-                    {extend: 'excel', title: 'Listado de emisores'},
-                    {extend: 'pdf', title: 'Listado de emisores'},
+                    {extend: 'excel', title: 'Facturas'},
+                    {extend: 'pdf', title: 'Facturas'},
                     {extend: 'print',
                      customize: function (win){
                             $(win.document.body).addClass('white-bg');

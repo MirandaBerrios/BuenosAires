@@ -12,7 +12,7 @@
     <nav th:insert="fragments/nav.html :: header"></nav>
 	<div class="col-5 mx-auto mt-5">
     	<form id="form_register" method="POST" th:action="@{/update_new_customer}" th:object="${customer}">
-		<div >
+		<div hidden>
 			<input th:field="*{isAuthenticate}">
 			<input th:field="*{isOnline}">
 			<input th:field="*{id}">
@@ -50,8 +50,9 @@
             <input th:field="*{adress}"  type="text" class="form-control" id="direccion" >
         </div>
        
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Actualizar datos</button>
       </form>
+      <br><br><br>
 </div>   
 <script th:src="@{/src/main/resources/static/bootstrap-5.1.3-dist/js/bootstrap.min.js}"> </script>
 <footer th:insert="fragments/footer.html :: footer"></footer>

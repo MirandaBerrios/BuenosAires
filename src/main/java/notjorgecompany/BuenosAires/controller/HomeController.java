@@ -23,9 +23,19 @@ public class HomeController {
 			System.err.println("mostando home");
 
 		return "home";
-
+		
 	}
 	
+	@GetMapping("/home-admin")
+	public String showProductsAdmin(Model model)  {
+			
+			List<Product> productos = productService.getAllProducts();
+			model.addAttribute("productos", productos);
+			System.err.println("mostando home");
+
+		return "home-admin";
+		
+	}
 	
 
 }
