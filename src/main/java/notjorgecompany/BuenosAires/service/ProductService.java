@@ -2,6 +2,9 @@ package notjorgecompany.BuenosAires.service;
 
 import java.util.List;
 
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import notjorgecompany.BuenosAires.odt.Product;
 
 public interface ProductService {
@@ -10,6 +13,6 @@ public interface ProductService {
 
 	public Product getProductById(String id);
 	
-	
+	public Product productoPorId(@PathVariable String id, Model model);
 	
 }

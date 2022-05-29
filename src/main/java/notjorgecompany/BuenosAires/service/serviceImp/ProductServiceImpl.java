@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import notjorgecompany.BuenosAires.mapper.ProductMapper;
 import notjorgecompany.BuenosAires.odt.Product;
@@ -34,9 +35,17 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Product getProductById(String id) {
-		Product product = productMapper.getProductById("10");
+		Product product = productMapper.getProductById(id);
+		
 		return product;
 		
+	}
+
+	@Override
+	public Product productoPorId(String id, Model model) {
+		// TODO Auto-generated method stub
+		
+		return null;
 	}
 
 
