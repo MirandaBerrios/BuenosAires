@@ -39,6 +39,13 @@ public class ProductServiceImpl implements ProductService {
 		
 	}
 
+	@Override
+	public int addNewProduct(Product product) {
+		System.err.println("guardando ... "+product.getName() );
+		return productMapper.addNewProduct(product);
+			
+	}
+
 
 	
 	

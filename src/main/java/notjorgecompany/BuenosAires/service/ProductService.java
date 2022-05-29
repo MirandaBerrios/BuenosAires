@@ -10,6 +10,7 @@ public interface ProductService {
 
 	public Product getProductById(String id);
 	
+	public int addNewProduct(Product product);
 	
 	
 }

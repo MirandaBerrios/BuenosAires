@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin | Productos</title>
+ <link th:href= "@{bootstrap5/css/bootstrap.min.css} " rel="stylesheet"/>
+ <link th:href="@{css/nav.css}"  rel="stylesheet"/>
+ 
+</head>
+<body>
+<nav th:insert="fragments/nav.html :: header"></nav>
+
+<div class="container">
+    <div class="from-new-product col-8" >
+        <form th:action="@{/add-product}" th:object="${product}" method="POST" >
+            <div class="mb-3" id="field1" hidden>
+                <lbl id="lbl1">id</lbl>
+                <input  th:field="*{id}" class="form-control" type="text" id="input1" >
+            </div>
+            <div class="mb-3" id="field2">
+                <lbl id="lbl2">Nombre</lbl>
+                <input th:field="*{name}"  class="form-control" type="text" id="input2"  >
+            </div>
+            <div class="mb-3" id="field3">
+                <lbl id="lbl3">Precio</lbl>
+                <input th:field="*{value}" class="form-control" type="text" id="input3"  >
+            </div>
+            <div class="mb-3" id="field4">
+                <lbl id="lbl4">Marca</lbl>
+                <input th:field="*{mark}" class="form-control" type="text" id="input4"  >
+            </div>
+            <div class="mb-3" id="field5">
+                <lbl id="lbl5">Disponible</lbl>
+                <input th:field="*{isAvailable}" class="form-control" type="text" id="input5"  >
+            </div>
+            <div class="mb-3" id="field6" >
+                <lbl id="lbl6">Imagen</lbl>
+                <input th:field="*{image}"  name="image" class="form-control" type="file" id="input6" accept="image/png, image/jpeg" disabled>
+            </div>
+            <div class="mb-3" id="field7">
+                <lbl id="lbl7">¿Está en oferta?</lbl>
+                <input th:field="*{isOfert}" class="form-control" type="text" id="input7" >
+            </div>
+            <div class="mb-3" id="field8">
+                <lbl id="lbl8">Número de modelo</lbl>
+                <input th:field="*{model}" class="form-control" type="text" id="input8"  >
+            </div>
+            <div class="mb-3" id="field9">
+                <lbl id="lbl9">Categoría</lbl>
+                <input th:field="*{category}"  class="form-control" type="text" id="input9"  >
+            </div>
+            <div class="mb-3" id="field10">
+                <lbl id="lbl10">Descripción</lbl>
+                <input  th:field="*{description}" class="form-control" type="text" id="input10" >
+            </div>
+
+            <button type="submit"  class="btn btn-primary"  > Agregar</button>
+        </form>
+    </div>
+</div>
+
+
+
+<script th:src="@{/src/main/resources/static/bootstrap-5.1.3-dist/js/bootstrap.min.js}"> </script>
+<footer th:insert="fragments/footer.html :: footer"></footer>
+</body>
+</html>

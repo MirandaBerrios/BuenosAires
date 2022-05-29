@@ -1,5 +1,6 @@
 package notjorgecompany.BuenosAires.odt;
 
+import java.util.Base64;
 import java.util.List;
 
 import lombok.Getter;
@@ -16,7 +17,7 @@ public class Product {
 	private String value; 
 	private String mark; 
 	private String isAvailable; 
-	private List<Image> image; 
+	private String image; 
 	private String isOfert; 
 	private String model; 
 	private String category; 
