@@ -9,7 +9,7 @@ import notjorgecompany.BuenosAires.object.Customer;
 import notjorgecompany.BuenosAires.service.CustomerService;
 
 
-@Log4j2
+
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
@@ -18,9 +18,28 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	@Override
 	public void insertNewCustomer(Customer customer) {
-		int registro = customerMapper.insertNewCustomer(customer);
-		log.info("Se ha creado con éxito " + registro + "nuevo cliente");
+		customerMapper.insertNewCustomer(customer);
+
 
 	}
+
+	@Override
+	public Customer getCustomerById(String id) {
+		return customerMapper.getCustomerById(id);
+		
+	}
+	
+	@Override
+	 public void updateCustomer(Customer customer){
+		try {
+			customerMapper.updateCustomer(customer);
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+		
+		
+		
+	}
+
 
 }
