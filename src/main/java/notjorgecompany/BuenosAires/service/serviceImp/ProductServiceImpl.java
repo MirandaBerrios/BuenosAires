@@ -41,11 +41,11 @@ public class ProductServiceImpl implements ProductService {
 		
 	}
 
-	@Override
-	public Product productoPorId(String id, Model model) {
-		// TODO Auto-generated method stub
-		
-		return null;
+	public int addNewProduct(Product product) {
+		System.err.println("guardando ... "+product.getName() );
+		return productMapper.addNewProduct(product);
+			
+
 	}
 
 

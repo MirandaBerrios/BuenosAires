@@ -2,6 +2,7 @@
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -40,5 +41,28 @@ public String getNombre();
 		+ " where id = #{id} "})	
 public Product getProductById(@Param("id") String id);
 
+
+@Insert({"INSERT INTO product ("
+		+ "    name,"
+		+ "    value,"
+		+ "    mark,"
+		+ "    is_available,"
+		+ "    image_01,"
+		+ "    is_ofert,"
+		+ "    model,"
+		+ "    category,"
+		+ "    description"
+		+ ") VALUES ("
+		+ "    #{name},"
+		+ "    #{value},"
+		+ "    #{mark},"
+		+ "    #{isAvailable},"
+		+ "    #{image},"
+		+ "    #{isOfert},"
+		+ "    #{model},"
+		+ "    #{category},"
+		+ "    #{description}"
+		+ ")"})
+public int addNewProduct(Product product); 
 
 }
