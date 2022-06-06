@@ -37,6 +37,12 @@
 #item2{
     margin-left: 40px;
 }
+#item3{
+    width: 80%;
+    margin: 120px auto 0px auto;
+    font-size: large;
+    color: rgb(17, 17, 231)
+}
 
 .data-container{
     display: flex;
@@ -66,9 +72,8 @@
 }
 
 .instalation-container{
-    border: 1px solid #eee;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
-    width: 50%;
+
+    width: 100%;
     margin: 50px auto 10px auto;
     padding: 20px;
 }
@@ -77,9 +82,3 @@
     margin: 5px auto 5px auto;
 }
 
-.show{
-    visibility:visible;
-}
-.hide{
-    visibility:hidden;
-}

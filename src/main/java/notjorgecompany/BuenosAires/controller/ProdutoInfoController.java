@@ -39,26 +39,31 @@ public class ProdutoInfoController {
 	
 	@GetMapping("/producto-info/{id}")
 	public ModelAndView showProductById(@PathVariable String id) {	
-		Product producto = productService.getProductById(id);
-
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+		String date = dtf.format(LocalDateTime.now());
 		
-		ModelAndView mav = new ModelAndView("/producto-info");
+		Product product = productService.getProductById(id);
+		ModelAndView mav = new ModelAndView("/producto-info-admin");
+		String buyOrder = "SO"+product.getId()+product.getId()+ date;
 		
         Map<String, Object> details = new HashMap<>();
-        details.put("buyOrder", "1001");
-        details.put("sessionId", producto.getId());
-        details.put("amount", Double.parseDouble(producto.getValue()));
-        details.put("returnUrl", "http://localhost:8080/");
+        details.put("buyOrder", buyOrder);
+        details.put("sessionId", product.getId());
+        details.put("amount", Double.parseDouble(product.getValue()));
+        String respondUrl = "http://localhost:8080/buySuccess/" + product.getId()+"/"+"10" + "/"+ buyOrder;
+        details.put("returnUrl", respondUrl);
 
         try {
-            final WebpayPlusTransactionCreateResponse response = WebpayPlus.Transaction.create("1001", producto.getId() , Double.parseDouble(producto.getValue()), "http://localhost:8080/");
+            final WebpayPlusTransactionCreateResponse response = WebpayPlus.Transaction.create("1001", product.getId(),
+            																				  Double.parseDouble(product.getValue()),
+            																				  respondUrl);
             details.put("url", response.getUrl());
             details.put("token", response.getToken());
         } catch (TransactionCreateException | IOException e) {
         	System.err.println(e);
             return null;
         }
-        mav.addObject("producto", producto);
+        mav.addObject("producto", product);
         mav.addObject("details", details);
 		return mav;
 		
@@ -101,15 +106,17 @@ public class ProdutoInfoController {
 	public ModelAndView generateInvoice(@PathVariable String idProduct,
 										@PathVariable String idCustomer,
 										@PathVariable String buyOrder) {
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH:mm:ss");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyy/MM/dd  HH:mm");
 		String dateNow = dtf.format(LocalDateTime.now());
+		String dateNow2 = dtf2.format(LocalDateTime.now());
 		Product product = productService.getProductById(idProduct);
 		Customer customer = customerService.getCustomerById(idCustomer);
 		InvoiceReport invReport = new InvoiceReport();
 		
 		invReport.setNumberInvoice("IN"+customer.getId()+product.getId()+dateNow);
 		invReport.setNameCustomer(customer.getName()+" "+customer.getLastName());
-		invReport.setDate(dateNow);
+		invReport.setDate(dateNow2);
 		invReport.setDescription(product.getName());
 		invReport.setAmount(product.getValue());
 		invReport.setReleaseOrder("RO"+customer.getId()+product.getId()+dateNow);

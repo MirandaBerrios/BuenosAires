@@ -19,6 +19,7 @@
             <div class="description">
                 <span id="item1" th:text="*{description}"></span>
                 <span id="item2" th:text="'Total ' + '$' +*{amount}"></span>
+                <span id="item3" >Te avisaremos cuando se agende la instalación</span>
             </div>
             <div class="image-container">
                 <img class="image" th:src="@{/image/defult.jpg}" alt=""> 
@@ -26,81 +27,43 @@
         </div>
     </div>
 
+    <!-- here start! -->
+    <form  class="col-3 container-invoice" th:object="${invoiceReport}" >
+    <div class="field-container mb-3 item1">
+        <lb  class="label1">Producto</lb>
+        <inptut th:text="*{description}" class="form-control input1"></inptut>
+    </div>
+    <div class="field-container mb-3 item2">
+        <lb class="form-label label2">Cliente</lb>
+        <inptut th:text="*{nameCustomer}" class="form-control input2"></inptut>
+    </div>
+    <div class="field-container mb-3 item3">
+        <lb class="form-label label3">Orden Despacho</lb>
+        <inptut th:text="*{releaseOrder}" class="form-control input3"></inptut>
+    </div>
+    <div class="field-container mb-3 item4">
+        <lb class="form-label label4">Precio</lb>
+        <inptut th:text="'$'+*{amount}" class="form-control input4"></inptut>
+    </div>
+    <div class="field-container mb-3 item4">
+        <lb class="form-label label4">fecha compra</lb>
+        <inptut th:text="*{date}" class="form-control input4"></inptut>
+    </div>
+
+
+    </form>
+
+    <!-- here ends! -->
     <div class="buton-container">
         <button id="instalation-button" class="btn btn-primary">Agendar instalación</button>
     </div>
 
 
-    <!-- here start instalation form -->
-    <div id="instalation-form" class="instalation-container col-5 hide" >
-        <form action="" >
-            <div class="field-container mb-3 item1">
-                <lb  class="label1">Precio</lb>
-                <inptut disabled class="form-control input1">$50.000</inptut>
-            </div>
-           <div class="field-container mb-3 item2">
-                <label for="tipo-solicitud">Tipo Solicitud</label>
-                <select name="tipo-solicitud" class="form-select" aria-label="Default select example">
-                    <option selected>Seleccionar</option>
-                    <option value="1">Mantención</option>
-                    <option value="2">Reparacion</option>
-                </select>
-           </div>
-           <div class="form-group">
-                <label for="Textarea1">Mensaje</label>
-                <textarea class="form-control" id="Textarea1" rows="3"></textarea>
-            </div>
-            <div class="field-container mb-3 item1">
-                <label for="instalation-date">Fecha</label>
-                <input type="date" id="instalation-date" name="birthday" class="form-control input1">
-            </div>
-            <div class="field-container mb-3 item1">
-                <label for="instalation-time">Hora</label>
-                <input type="time" id="inputTime" name="instalation-time" min="09:00" max="18:00" required>
-            </div>
-            <button class="btn btn-primary mb-3 submit-button" type="submit">Agendar visita</button>
-        </form>
-    </div>
-    <!-- here ends instalation form -->
+   
 
-    <!-- here start! -->
-    <form  class="col-3 container-invoice" th:object="${invoiceReport}" >
-        <div class="field-container mb-3 item1">
-            <lb  class="label1">Producto</lb>
-            <inptut th:text="*{description}" class="form-control input1"></inptut>
-        </div>
-        <div class="field-container mb-3 item2">
-            <lb class="form-label label2">Cliente</lb>
-            <inptut th:text="*{nameCustomer}" class="form-control input2"></inptut>
-        </div>
-        <div class="field-container mb-3 item3">
-            <lb class="form-label label3">Orden Despacho</lb>
-            <inptut th:text="*{releaseOrder}" class="form-control input3"></inptut>
-        </div>
-        <div class="field-container mb-3 item4">
-            <lb class="form-label label4">Precio</lb>
-            <inptut th:text="'$'+*{amount}" class="form-control input4"></inptut>
-        </div>
-        <div class="field-container mb-3 item4">
-            <lb class="form-label label4">fecha compra</lb>
-            <inptut th:text="*{date}" class="form-control input4"></inptut>
-        </div>
   
 
-    </form>
-    <!-- here ends! -->
-
 <script th:src="@{/bootstrap5/js/bootstrap.min.js}"> </script>
-<script>
-    function showForm(){
-        var element = document.getElementById("instalation-form");
-        console.log(element);
-        element.classList.remove("hide");
-        element.classList.add("show");
-    }
-
-    document.getElementById("instalation-button").addEventListener("click", showForm);
-</script>
 <footer th:insert="fragments/footer.html :: footer"></footer>
 </body>
 </html>

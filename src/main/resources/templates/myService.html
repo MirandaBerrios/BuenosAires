@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="language" content="Spanish">
+<title>ANWO</title>
+ <link th:href= "@{bootstrap5/css/bootstrap.min.css} " rel="stylesheet"/>
+ <link th:href="@{css/nav.css}"  rel="stylesheet"/>
+ <link rel="stylesheet" th:href="@{css/buyView.css}">
+ <link th:href="@{/css/plugins/dataTables/datatables.min.css}" rel="stylesheet">
+ <link th:href="@{/css/animate.css}" rel="stylesheet">
+ <link th:href="@{/css/style.css}" rel="stylesheet">
+ <link th:href="@{/css/plugins/select2/select2.min.css}" rel="stylesheet">
+ <link th:href="@{/css/plugins/sweetalert/sweetalert.css}" rel="stylesheet">
+ <link th:href="@{/css/plugins/iCheck/custom.css}" rel="stylesheet">
+ <link th:href="@{/css/plugins/switchery/switchery.css}" rel="stylesheet"> 
+
+</head>
+<style>
+    .select2-close-mask{
+        z-index: 2099;
+    }
+    .select2-dropdown{
+        z-index: 3051;
+    }
+    </style>
+<body class="pace-done mini-navbar" style="background-color: white;">
+<nav th:insert="fragments/nav.html :: header"></nav>
+
+<div class="table">
+
+</div>
+<div id="wrapper">
+    <div id="page-wrapper" class="gray-bg">
+    <div class="row border-bottom">
+         <!--     include logout -->
+   <!-- <div th:include="include/logout">  </div> -->
+    </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2 > Mis Servicios | Buenos Aires</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a th:href="@{/home-admin}" >Inicio</a>
+                    </li>
+                    <li class="active">
+                        <strong >Servicios</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+        
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5 >Listado de Cuentas</h5>
+                    <div class="ibox-tools">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Nuevo Servicio</button>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover dataTables-example" id="invoice-admin">
+                        <thead>
+                        <tr>                                       
+                            
+                            <th  class="text-center">Id servicio</th>
+                            <th  class="text-center">Descripción</th>
+                            <th  class="text-center">Precio</th>
+                            <th  class="text-center">Empleado</th>
+                            <th  class="text-center">Fecha</th>
+                             <th  class="text-center">Hora</th>
+                            <th  class="text-center">Estado</th>
+                                         
+                        </tr>
+                        </thead>
+                     <tbody>
+                         <tr  th:each="service : ${myServiceList}" >
+                             <td class="text-center" th:text="${service.id}">id</td>
+                             <td class="text-center" th:text="${service.description}">customer</td>
+                             <td class="text-center" th:text="${service.price}">date</td>
+                             <td class="text-center" th:text="${service.idEmployee}">banco</td>
+                             <td class="text-center" th:text="${service.date}">rut</td>
+                            <td class="text-center" th:text="${service.hour}">fecha</td>
+                            <td class="text-center" th:text="${service.idState}">fecha</td>
+                            
+                                                    
+                        </tr>
+                    </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    </div>
+ </div>
+
+
+<div class="modal fade col-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLabel">Agendar nuevo servicio</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+            <div class="container-new-service">
+                <!-- here start instalation form -->
+                <div id="instalation-form" class="instalation-container " >
+                    <form action="" >
+                        <div class="field-container mb-3 item1">
+                            <lb  class="label1">Precio</lb>
+                            <inptut disabled class="form-control input1">$50.000</inptut>
+                        </div>
+                    <div class="field-container mb-3 item2">
+                            <label for="tipo-solicitud">Tipo Solicitud</label>
+                            <select name="tipo-solicitud" class="form-select" aria-label="Default select example">
+                                <option selected>Seleccionar</option>
+                                <option value="1">Mantención</option>
+                                <option value="2">Reparacion</option>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                            <label for="Textarea1">Mensaje</label>
+                            <textarea class="form-control" id="Textarea1" rows="3"></textarea>
+                        </div>
+                        <div class="field-container mb-3 item1">
+                            <label for="instalation-date">Fecha</label>
+                            <input type="date" id="instalation-date" name="birthday" class="form-control input1">
+                        </div>
+                        <div class="field-container mb-3 item1">
+                            <label for="instalation-time">Hora</label>
+                            <input type="time" id="inputTime" name="instalation-time" min="09:00" max="18:00" required>
+                        </div>
+                        <button class="btn btn-primary mb-3 submit-button" type="submit">Agendar visita</button>
+                    </form>
+                </div>
+                <!-- here ends instalation form -->
+            </div>
+        </div>
+        <div class="modal-footer justify-content-center" >
+          <h5> Te redirigiremos a webpay para agendar tu pedido</h5>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+    <div class="container-new-service">
+        <!-- here start instalation form -->
+        <div id="instalation-form" class="instalation-container col-5 " >
+            <form action="" >
+                <div class="field-container mb-3 item1">
+                    <lb  class="label1">Precio</lb>
+                    <inptut disabled class="form-control input1">$50.000</inptut>
+                </div>
+            <div class="field-container mb-3 item2">
+                    <label for="tipo-solicitud">Tipo Solicitud</label>
+                    <select name="tipo-solicitud" class="form-select" aria-label="Default select example">
+                        <option selected>Seleccionar</option>
+                        <option value="1">Mantención</option>
+                        <option value="2">Reparacion</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                    <label for="Textarea1">Mensaje</label>
+                    <textarea class="form-control" id="Textarea1" rows="3"></textarea>
+                </div>
+                <div class="field-container mb-3 item1">
+                    <label for="instalation-date">Fecha</label>
+                    <input type="date" id="instalation-date" name="birthday" class="form-control input1">
+                </div>
+                <div class="field-container mb-3 item1">
+                    <label for="instalation-time">Hora</label>
+                    <input type="time" id="inputTime" name="instalation-time" min="09:00" max="18:00" required>
+                </div>
+                <button class="btn btn-primary mb-3 submit-button" type="submit">Agendar visita</button>
+            </form>
+        </div>
+        <!-- here ends instalation form -->
+    </div>
+
+
+<footer th:insert="fragments/footer.html :: footer"></footer>
+
+<script th:src="@{bootstrap5/js/bootstrap.min.js}"> </script>
+<script th:src="@{/js/jquery-3.5.1.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+<script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/js/plugins/dataTables/datatables.min.js}"></script>
+
+Custom and plugin javascript
+<script th:src="@{/js/inspinia.js}"></script>
+<script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+<script th:src="@{/js/jquery.validate.min.js}"></script>
+<script th:src="@{/js/plugins/sweetalert/sweetalert.min.js}"></script>
+ iCheck
+<script th:src="@{/js/plugins/iCheck/icheck.min.js}"></script>
+<script th:src="@{/js/plugins/select2/select2.full.min.js}"></script>
+<script th:src="@{/js/customBSS.js}"></script>
+<script th:inline="javascript"> 
+
+    $(document).ready(function(){
+        
+               /***   DATA TABLE   ***/
+               $('#invoice-admin').DataTable({
+                   pageLength: 25,
+                   responsive: true,
+                   dom: '<"html5buttons"B>lTfgitp',
+                   buttons: [
+                       {extend: 'copy'},
+                       {extend: 'csv'},
+                       {extend: 'excel', title: 'Facturas'},
+                       {extend: 'pdf', title: 'Facturas'},
+                       {extend: 'print',
+                        customize: function (win){
+                               $(win.document.body).addClass('white-bg');
+                               $(win.document.body).css('font-size', '10px');
+                               $(win.document.body).find('table')
+                                                   .addClass('compact')
+                                                   .css('font-size', 'inherit');
+                       }
+                       }
+                   ]
+               });
+   
+               
+               $('#btnWidget').click(function(){
+                   $()
+                   
+               })
+                
+            
+    });             
+               
+    </script>    
+</body>
+</html>
