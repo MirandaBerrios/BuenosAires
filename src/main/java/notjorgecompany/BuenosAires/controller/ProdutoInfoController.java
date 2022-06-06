@@ -107,7 +107,7 @@ public class ProdutoInfoController {
 		Customer customer = customerService.getCustomerById(idCustomer);
 		InvoiceReport invReport = new InvoiceReport();
 		
-		invReport.setNumeroFactura("IN"+customer.getId()+product.getId()+dateNow);
+		invReport.setNumberInvoice("IN"+customer.getId()+product.getId()+dateNow);
 		invReport.setNameCustomer(customer.getName()+" "+customer.getLastName());
 		invReport.setDate(dateNow);
 		invReport.setDescription(product.getName());

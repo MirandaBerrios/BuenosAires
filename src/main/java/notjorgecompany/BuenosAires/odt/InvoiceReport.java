@@ -8,13 +8,14 @@ import lombok.ToString;
 @Setter
 @ToString
 public class InvoiceReport {
-	  	private String numeroFactura;
+	  	private String numberInvoice;
 	    private String nameCustomer;
 	    private String date;
 	    private String description;
 	    private String amount;
 	    private String releaseOrder;
 	    private String stateReleaseOrder;
+	    private String numberService;
 	    private String stateService;
 
 }

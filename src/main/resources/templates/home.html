@@ -30,7 +30,7 @@
 				<span class="precio " th:text="'$'+${producto.value}"></span>
 			</div>
         	<div class="btn-container" th:if="${producto.isAvailable} == 'S' ">
-            	<a  type="submit" th:href="@{/producto-info-admin/{id}(id=${producto.id})}"  class="btn btn-primary btn-product">Ver Producto</a>
+            	<a  type="submit" th:href="@{/producto-info/{id}(id=${producto.id})}"  class="btn btn-primary btn-product">Ver Producto</a>
         	</div>
         	<div class="btn-container" th:if="${producto.isAvailable} == 'N' ">
             	<a  type="submit"   class="btn btn-primary btn-product">No Disponible</a>
@@ -39,7 +39,7 @@
    	</div>
 </div>
 
-<script th:src="@{/src/main/resources/static/bootstrap-5.1.3-dist/js/bootstrap.min.js}"> </script>
+<script th:src="@{/bootstrap5/js/bootstrap.min.js}"> </script>
 <footer th:insert="fragments/footer.html :: footer"></footer>
 
 </body>
