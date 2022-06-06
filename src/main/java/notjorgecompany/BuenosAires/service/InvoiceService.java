@@ -7,4 +7,6 @@ import notjorgecompany.BuenosAires.odt.Invoice;
 public interface InvoiceService {
 
 	public List<Invoice> getAllInvoices(); 
+	
+	public boolean insertNewInvoice(Invoice invoice); 
 }

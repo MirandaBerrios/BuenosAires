@@ -17,6 +17,7 @@
 }
 
 #item-1 > a{
+    margin-left: 20px;
     font-size:xx-large;
     font-family:Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;

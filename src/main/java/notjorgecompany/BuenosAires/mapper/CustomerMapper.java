@@ -57,6 +57,11 @@ public Customer getCustomerById(@Param("id") String id);
 		+ " WHERE id_customer = '${customer.id}'"})
 public void updateCustomer(@Param("customer") Customer customer);
 
+@Select({"Select id_role from customer"
+		+ " where email_customer = #{email} "
+		+ " and password_customer = #{password}"})
+public String getIdRole(@Param("email") String email, @Param("password") String password);
+
 
 
 }

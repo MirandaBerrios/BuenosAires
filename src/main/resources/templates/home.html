@@ -5,37 +5,39 @@
 <title>ANWO</title>
  <link th:href= "@{bootstrap5/css/bootstrap.min.css} " rel="stylesheet"/>
  <link th:href="@{css/nav.css}"  rel="stylesheet"/>
+ <link rel="stylesheet" th:href="@{css/home.css}">
+ 
+
+
 </head>
 <body>
 <nav th:insert="fragments/nav.html :: header"></nav>
 	
-
-
-
-<div class="container" style="display:flex; flex-wrap: wrap;">
+<div class="container" >
 	
     <div th:each= "producto : ${productos}" style="flex: 30%;">
-    	<div class="product" style="margin: 15px; border:1px solid black;">
-    		
-    		<h2 th:if="${producto.isAvailable} == 'S'"> Disponible</h2>
-    		<h2 th:if="${producto.isAvailable} == 'N'"> Agotado</h2>
-        	<h4 th:text="${producto.name}"> </h4>
+    	<div class="product" >
+    		<span class="available" th:if="${producto.isAvailable} == 'S'"> Disponible</span>
+    		<span class="no-available" th:if="${producto.isAvailable} == 'N'"> Agotado</span>
+        	<div class="tittle-container">
+				<span class="product-tittle" th:text="${producto.name}"></span> 
+			</div>
         	<h3 th:field="${producto.id}" th:text="${producto.id}" hidden> </h3>
-        	<div class="image"> <img th:src="@{/image/defult.jpg}" alt="" width="300px"> 
+        	<div class="image-container"> 
+				<img class="image" th:src="@{/image/defult.jpg}" alt="" width=""> 
         	</div>
-        	<p th:text="${producto.description}"> </p>
-        	<div class="precio" th:text="${producto.value}"></div>
-        	<div th:if="${producto.isAvailable} == 'S' ">
-            	<a style="margin: 15px;" type="submit" th:href="@{/producto-info/{id}(id=${producto.id})}"  class="btn btn-primary">Ver Productos</a>
+        	<div class="precio-container text-center" >
+				<span class="precio " th:text="'$'+${producto.value}"></span>
+			</div>
+        	<div class="btn-container" th:if="${producto.isAvailable} == 'S' ">
+            	<a  type="submit" th:href="@{/producto-info-admin/{id}(id=${producto.id})}"  class="btn btn-primary btn-product">Ver Producto</a>
         	</div>
-        	<div th:if="${producto.isAvailable} == 'N' ">
-            	<a style="margin: 15px;" type="submit"   class="btn btn-primary">No Disponible</a>
+        	<div class="btn-container" th:if="${producto.isAvailable} == 'N' ">
+            	<a  type="submit"   class="btn btn-primary btn-product">No Disponible</a>
         	</div>
    		</div>
-
-    </div>
+   	</div>
 </div>
- <br><br><br><br><br><br><br><br><br><br><br><br>
 
 <script th:src="@{/src/main/resources/static/bootstrap-5.1.3-dist/js/bootstrap.min.js}"> </script>
 <footer th:insert="fragments/footer.html :: footer"></footer>

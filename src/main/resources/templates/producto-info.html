@@ -6,6 +6,7 @@
 <title>Producto Anwo</title>
  <link th:href= "@{/bootstrap5/css/bootstrap.min.css} " rel="stylesheet"/>
  <link th:href="@{/css/nav.css}"  rel="stylesheet"/>
+ <link rel="stylesheet" th:href="@{css/product-info.css}">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
 	</div>
 	<div class="col-6">
 		<div th:object="${producto}">
-			<h1 th:if="${producto.isAvailable} == 'S'">El producto esta disponible</h1>
+			<h1 th:if="${producto.isAvailable} == 'S'">disponible</h1>
 			<h3 th:text="'$ '+${producto.value}"></h3>
 			<h3 th:text="${producto.name}"></h3>
 			<h4>Descripción :</h4>

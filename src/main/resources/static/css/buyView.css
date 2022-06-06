@@ -1,0 +1,85 @@
+.container-invoice{
+    width: 50%;
+    margin: 50px auto 200px auto;
+    padding: 20px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    color: #555;
+}
+
+.buton-container{
+    display: flex;
+}
+
+.buton-container button{
+    width: 30%;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    margin:0px auto 0px auto;
+}
+
+.resume-container{
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    width: 60%;
+    margin: 150px auto 80px auto;
+
+}
+#item1{
+    font-size: large;
+    font-weight: bolder;
+    margin: 20px auto 40px 30px;
+}
+
+#item2{
+    margin-left: 40px;
+}
+
+.data-container{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.tittle{
+    font-size: xx-large;
+    text-align: center;
+}
+.image-container{
+    width: 50%;
+    display: flex;
+    
+}
+
+.image{
+    width: 70%;
+    height: 90%;
+    margin: 5% auto 5% auto;
+}
+.description{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.instalation-container{
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    width: 50%;
+    margin: 50px auto 10px auto;
+    padding: 20px;
+}
+.submit-button{
+    display: flex;
+    margin: 5px auto 5px auto;
+}
+
+.show{
+    visibility:visible;
+}
+.hide{
+    visibility:hidden;
+}
