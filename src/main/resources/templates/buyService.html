@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ANWO</title>
+ <link th:href= "@{/bootstrap5/css/bootstrap.min.css} " rel="stylesheet"/>
+ <link th:href="@{/css/nav.css}"  rel="stylesheet"/>
+ <link rel="stylesheet" th:href="@{/css/home.css}">
+ 
+
+
+</head>
+<body>
+<nav th:insert="fragments/nav.html :: header"></nav>
+	
+<div class="container">
+  <!-- here start! -->
+  <form th:action="${details.url}" method="POST"  class="col-3 container-invoice"  >
+   
+        <div th:object="${myService}">
+            <div class="field-container mb-3 item2">
+                <lb for="date" class="form-label label1">Fecha</lb>
+                <input  name="date" th:value="*{date}" class="form-control input1"></input>
+            </div>
+            <div class="field-container mb-3 item3">
+                <lb class="form-label label2">Hora</lb>
+                <input th:value="*{hour}" class="form-control input2"></input>
+            </div>
+            <div class="field-container mb-3 item4">
+                <lb class="form-label label3">Tipo Solicitud</lb>
+                <input th:value="*{type}" class="form-control input3"></input>
+            </div>
+            <div class="field-container mb-3 item4">
+                <lb class="form-label label4">Tu descripción</lb>
+                <input th:value="*{description}" class="form-control input4"></input>
+            </div>
+            <div class="field-container mb-3 item4">
+                <lb class="form-label label5">Estado</lb>
+                <input th:value="*{idState}" class="form-control input5"></input>
+            </div>
+    
+            <input type="hidden" name="token_ws" th:value="${details.token}">
+            <input  class="btn btn-primary" type="submit" value="Ejecutar Pago con Webpay">
+        </div>
+  
+    </form>
+
+    <!-- here ends! -->
+
+</div>
+
+<script th:src="@{/bootstrap5/js/bootstrap.min.js}"> </script>
+<footer th:insert="fragments/footer.html :: footer"></footer>
+
+</body>
+</html>

@@ -50,7 +50,7 @@ public class ProdutoInfoController {
         details.put("buyOrder", buyOrder);
         details.put("sessionId", product.getId());
         details.put("amount", Double.parseDouble(product.getValue()));
-        String respondUrl = "http://localhost:8080/buySuccess/" + product.getId()+"/"+"10" + "/"+ buyOrder;
+        String respondUrl = "http://localhost:5000/buySuccess/" + product.getId()+"/"+"10" + "/"+ buyOrder;
         details.put("returnUrl", respondUrl);
 
         try {
@@ -83,7 +83,7 @@ public class ProdutoInfoController {
         details.put("buyOrder", buyOrder);
         details.put("sessionId", product.getId());
         details.put("amount", Double.parseDouble(product.getValue()));
-        String respondUrl = "http://localhost:8080/buySuccess/" + product.getId()+"/"+"10" + "/"+ buyOrder;
+        String respondUrl = "http://localhost:5000/buySuccess/" + product.getId()+"/"+"10" + "/"+ buyOrder;
         details.put("returnUrl", respondUrl);
 
         try {

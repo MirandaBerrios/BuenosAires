@@ -10,6 +10,7 @@ import lombok.ToString;
 public class MyService {
 	
 	private String id;
+	private String type; 
 	private String description;
 	private String price;
 	private String idEmployee;

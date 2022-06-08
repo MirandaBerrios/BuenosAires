@@ -1,0 +1,12 @@
+.breadcrumb > li {
+    margin-left: 15px;
+}
+
+.wrapper-content{
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.671);
+}
+
+body{
+    background-color: white;
+}
