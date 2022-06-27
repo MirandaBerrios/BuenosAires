@@ -39,14 +39,14 @@ public interface InvoiceMapper {
 		+ "    id_service,"
 		+ "    amount"
 		+ ") VALUES ("
-		+ "    #{id}"
+		+ "    #{id},"
 		+ "    #{idCustomer},"
 		+ "    #{date},"
-		+ "    #{desscription},"
+		+ "    #{description},"
 		+ "    #{idSell},"
 		+ "    #{idReleaseOrder},"
 		+ "    #{idProduct},"
-		+ "    #{idServive},"
+		+ "    #{idService},"
 		+ "    #{amount})"
 		})
 public int insertInvoice(Invoice invoice); 

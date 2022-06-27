@@ -38,14 +38,14 @@ public List<MyService> getAllServiceByQuery(@Param("idCustomer") String idCustom
 		+ "    hour_service,"
 		+ "    id_state"
 		+ ") VALUES ("
-		+ "    *{id},"
-		+ "    *{description},"
-		+ "    *{price},"
-		+ "    *{idEmployee},"
-		+ "    *{idCustomer},"
-		+ "    *{date},"
-		+ "    *{hour},"
-		+ "    *{idState}"
+		+ "    #{id},"
+		+ "    #{description},"
+		+ "    #{price},"
+		+ "    #{idEmployee},"
+		+ "    #{idCustomer},"
+		+ "    #{date},"
+		+ "    #{hour},"
+		+ "    #{idState}"
 		+ ")"})
 public boolean insertNewService(MyService myService);
 }

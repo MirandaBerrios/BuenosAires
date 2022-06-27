@@ -21,9 +21,11 @@ import notjorgecompany.BuenosAires.object.Customer;
 import notjorgecompany.BuenosAires.odt.Invoice;
 import notjorgecompany.BuenosAires.odt.InvoiceReport;
 import notjorgecompany.BuenosAires.odt.Product;
+import notjorgecompany.BuenosAires.odt.ReleaseOrder;
 import notjorgecompany.BuenosAires.service.CustomerService;
 import notjorgecompany.BuenosAires.service.InvoiceService;
 import notjorgecompany.BuenosAires.service.ProductService;
+import notjorgecompany.BuenosAires.service.ReleaseOrderService;
 
 @Controller
 public class ProdutoInfoController {
@@ -36,6 +38,9 @@ public class ProdutoInfoController {
 	
 	@Autowired 
 	InvoiceService invoiceService;
+	
+	@Autowired
+	ReleaseOrderService releaseOrderService;
 	
 	@GetMapping("/producto-info/{id}")
 	public ModelAndView showProductById(@PathVariable String id) {	
@@ -136,7 +141,18 @@ public class ProdutoInfoController {
 		invoice.setIdProduct(product.getId());
 		invoice.setIdService("SE"+customer.getId()+product.getId()+dateNow);
 		
-		//invoiceService.insertNewInvoice(invoice);
+		ReleaseOrder releaseOrder = new ReleaseOrder();
+		releaseOrder.setId("RO"+customer.getId()+product.getId()+dateNow);
+		releaseOrder.setIdCustomer(idCustomer);
+		releaseOrder.setIdState("3");
+		releaseOrder.setIdProduct(idProduct);
+		releaseOrder.setIdSell(buyOrder);
+		releaseOrder.setIdInvoice("IN"+customer.getId()+product.getId()+dateNow);
+		
+		releaseOrderService.insertReleaseOrder(releaseOrder);
+		
+		
+		invoiceService.insertNewInvoice(invoice);
 		
 		ModelAndView mav = new ModelAndView("buyView");
 		mav.addObject("invoice", invoice);

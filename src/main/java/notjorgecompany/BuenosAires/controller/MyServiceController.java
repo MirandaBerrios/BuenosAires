@@ -45,6 +45,21 @@ public class MyServiceController {
 		return mav;
 	}
 	
+	@PostMapping("/serviceSuccess")
+	public ModelAndView showServiceView1() {
+		MyService defaultService = new MyService();
+		defaultService.setPrice("50000");
+		defaultService.setIdCustomer("10");
+		defaultService.setIdState("1");
+		List<MyService> serviceList = myServiceService.getAllService("10");	
+		ModelAndView mav = new ModelAndView("myService");
+		mav.addObject("myServiceList", serviceList);
+		mav.addObject("myService", defaultService); 
+		
+		
+		return mav;
+	}
+	
 	
 	@PostMapping("/service/payment")
 	public ModelAndView payService(@Param("service") MyService myService){
@@ -58,7 +73,7 @@ public class MyServiceController {
 			
 			Customer customer = customerService.getCustomerById(myService.getIdCustomer());
 		
-			String respondUrl = "http://localhost:5000/service";
+			String respondUrl = "http://localhost:5000/serviceSuccess";
 			
 			Map<String, Object> details = new HashMap<>();
 			details.put("buyOrder", myService.getPrice());
@@ -73,11 +88,15 @@ public class MyServiceController {
 	        endService.setHour(myService.getHour());
 	        endService.setDate(myService.getDate());
 	        endService.setIdCustomer(customer.getId());
-	        endService.setIdEmployee("00");
+	        endService.setIdEmployee("10");
+	        endService.setPrice("50000");
 	        endService.setIdState("1"); 
 	        endService.setDescription(myService.getDescription());
 	        
-	        //myServiceService.insertNewService(endService);
+	        System.err.println(endService);
+	        myServiceService.insertNewService(endService);
+	        
+	       
 	        
 	        
 	        try {
